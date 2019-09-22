@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: rgb(44, 44, 44);
+}
+
+body {
+    background-color: rgb(255, 239, 239);
+}
+
+ul {
+    list-style-type: none;
+}
+
+hr {
+    border-color: #ebaeae;
+}
+
+header {
+    padding: 20px 20px;
+    width: 100%;
+    background-color: white;
+}
+
+header nav {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+header ul {
+    display: flex;
+}
+
+header li {
+    user-select: none;
+    line-height: 52px;
+    width: 160px;
+    padding: 0 5px;
+    margin: 0 30px;
+    border-radius: 24px;
+    text-align: center;
+    border: 2px solid #c02942;
+    background-color: white;
+    transition: background-color 0.3s;
+}
+
+header li:hover {
+    background-color: #c02942;
+}
+
+header a {
+    display: block;
+    height: 100%;
+    font-size: 24px;
+    text-decoration: none;
+    transition: color 0.1s;
+}
+
+header a:hover {
+    color: white;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    margin: 100px auto;
+    display: flex;
+    justify-content: center;
+}
+
+main div {
+    background-color: white;
+}
+
+main div ul li {
+    display: inline-block;
+    font-size: 36px;
+    padding: 3px 0 0 16px;
+    margin: 0 24px 4px 0;
+}
+
+main div ul li:first-child,
+main div ul li:nth-child(2) {
+    color: #910018;
+}
+
+main div ul li:first-child {
+    margin-left: 4px;
+}
+
+main div ul li:nth-child(2) {
+    margin-left: 8px;
+}
+
+@media only screen and (max-width: 610px) {
+    header {
+        padding-bottom: 12px;
+    }
+
+    header ul {
+        flex-direction: column;
+    }
+    
+    header ul li {
+        margin-bottom: 8px;
+    }
+}
+
+@media only screen and (max-width: 370px) {
+    main div ul li {
+        font-size: 32px;
+        padding: 3px 0 0 8px;
+    }
+
+    main div ul li:first-child {
+        margin-left: 2px;
+    }
+    
+    main div ul li:nth-child(2) {
+        margin-left: 8px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    main div ul li {
+        font-size: 28px;
+        padding: 3px 0 0 2px;
+    }
+}
+
+@media only screen and (max-width: 260px) {
+    main div ul li:first-child,
+    main div ul li:nth-child(2) {
+        font-size: 26px;
+    }
+}
+
+@media only screen and (max-width: 240px) {
+    main div ul li:nth-child(2) {
+        font-size: 17px;
+    }
+}
