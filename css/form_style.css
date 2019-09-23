@@ -10,12 +10,14 @@ form p {
     margin: 12px 0 2px 0;
 }
 
-form input {
+form input,
+form select {
     border-radius: 2px;
     border: 1px solid rgb(122, 122, 122);
     font-size: 18px;
 }
 
-form input:focus {
+form input:focus,
+form select:focus {
     outline-color: #c02942;
 }

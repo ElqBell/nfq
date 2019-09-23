@@ -2,10 +2,10 @@ function printClients() {
     if(window.localStorage.length > 0) {
         let data = [];
 
-        for(i = 0; i < window.localStorage.length; i++) {
+        for(i = 0; i < window.localStorage.length; i++)
             data[i] = JSON.parse(localStorage.getItem(`user${i}`));
-        }
 
+        // Sorts data first by name and then by id
         data.sort((a, b) => (a["specialist"] > b["specialist"]) ? 1 :
         (a["specialist"] === b["specialist"]) ? ((parseInt(a["id"]) > parseInt(b["id"])) ? 1 : -1) : -1 );
 
