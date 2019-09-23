@@ -11,6 +11,11 @@ function displayDownloadProgress(status) {
     }
 }
 
+// Deletes all data stored in localStorage
+function deleteAllData() {
+    window.localStorage.clear();
+}
+
 // Saves received data to localStorage
 function saveExampleData() {
     displayDownloadProgress(0);
@@ -44,3 +49,4 @@ function newClient() {
 
 document.querySelector("main form").addEventListener("submit", () => newClient());
 document.getElementById("SaveExampleData").addEventListener("click", () => saveExampleData());
+document.getElementById("DeleteAllData").addEventListener("click", () => deleteAllData());

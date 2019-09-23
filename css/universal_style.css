@@ -58,3 +58,17 @@ header a {
 header a:hover {
     color: white;
 }
+
+@media only screen and (max-width: 610px) {
+    header {
+        padding-bottom: 12px;
+    }
+
+    header ul {
+        flex-direction: column;
+    }
+    
+    header ul li {
+        margin-bottom: 8px;
+    }
+}

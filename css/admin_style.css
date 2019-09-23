@@ -8,6 +8,10 @@ main {
     flex-direction: column;
 }
 
+#DeleteAllData {
+    margin-bottom: 10px;
+}
+
 main hr {
     margin-top: 50px;
     width: 100%;

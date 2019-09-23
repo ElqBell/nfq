@@ -1,8 +1,16 @@
 // Prints clients' data from localStorage
 function printClients() {
     if(window.localStorage.length > 0) {
-        let data = [];
+        // Creates table headers
+        let idLI = document.createElement("LI");
+        let specialistLI = document.createElement("LI");
+        idLI.innerText = "ID";
+        specialistLI.innerText = "SPECIALIST";
+        document.querySelector("main div ul").appendChild(idLI);
+        document.querySelector("main div ul").appendChild(specialistLI);
+        document.querySelector("main div ul").appendChild(document.createElement("hr"));
 
+        let data = [];
         for(i = 0; i < window.localStorage.length; i++)
             data[i] = JSON.parse(localStorage.getItem(`user${i}`));
 
@@ -20,5 +28,10 @@ function printClients() {
             document.querySelector("main div ul").appendChild(li2);
             document.querySelector("main div ul").appendChild(document.createElement("hr"));
         }
+    } else {
+        let msg = document.createElement("LI");
+        msg.innerText = "No Data Found";
+        document.querySelector("main div ul").appendChild(msg);
+        document.querySelector("main div ul").appendChild(document.createElement("hr"));
     }
 }

@@ -34,20 +34,6 @@ main div ul li:nth-child(2) {
     margin-left: 8px;
 }
 
-@media only screen and (max-width: 610px) {
-    header {
-        padding-bottom: 12px;
-    }
-
-    header ul {
-        flex-direction: column;
-    }
-    
-    header ul li {
-        margin-bottom: 8px;
-    }
-}
-
 @media only screen and (max-width: 370px) {
     main div ul li {
         font-size: 32px;
