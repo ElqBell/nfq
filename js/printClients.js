@@ -1,3 +1,4 @@
+// Prints clients' data from localStorage
 function printClients() {
     if(window.localStorage.length > 0) {
         let data = [];

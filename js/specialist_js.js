@@ -1,3 +1,4 @@
+// Adjusts keys of localStorage after a client is deleted
 function adjustLocalStorage(id) {
     // Only executes if removed item is not the last one
     if(id != window.localStorage.length) {
@@ -8,6 +9,7 @@ function adjustLocalStorage(id) {
     }
 }
 
+// Deletes a client from localStorage
 function deleteClient() {
     let id = document.getElementById("Clients").value;
     let data = [];
@@ -27,12 +29,14 @@ function deleteClient() {
     findClients();
 }
 
+// Clears option tags in select tag for writing new data
 function clearSelectTag(selector) {
     let specialists = document.querySelectorAll(`#${selector} option`);
     for(i = 0; i < specialists.length; i++)
         document.getElementById(selector).removeChild(specialists[i]);
 }
 
+// Finds all specialists and displays them
 function findSpecialists() {
     let data = [];
     for(i = 0; i < window.localStorage.length; i++)
@@ -40,7 +44,7 @@ function findSpecialists() {
 
     clearSelectTag("Specialists");
 
-    // Sort array by specialist name
+    // Sort object array by specialist name
     data.sort((a, b) => a["specialist"] > b["specialist"] ? 1 : -1);
     
     let unique = [...new Set(data.map(item => item["specialist"]))];
@@ -53,6 +57,7 @@ function findSpecialists() {
     }
 }
 
+// Finds clients belonging to selected specialist and displays them
 function findClients() {
     let currentSpecialist;
     let specialists = document.querySelectorAll("#Specialists option");
@@ -69,7 +74,7 @@ function findClients() {
     for(i = 0; i < window.localStorage.length; i++)
         data[i] = JSON.parse(localStorage.getItem(`user${i}`));
 
-    // Sort array by id
+    // Sort object array by id
     data.sort((a, b) => parseInt(a["id"]) > parseInt(b["id"]) ? 1 : -1);
 
     for(i = 0; i < data.length; i++)
