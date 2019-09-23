@@ -5,6 +5,7 @@
         <title>Admin</title>
         <link rel="stylesheet" type="text/css" href="css/universal_style.css">
         <link rel="stylesheet" type="text/css" href="css/admin_style.css">
+        <link rel="stylesheet" type="text/css" href="css/form_style.css">
     </head>
     <body>
         <header>
@@ -19,6 +20,14 @@
 
         <main>
             <div class="button" onclick="saveExampleData()">Išsaugoti pavyzdinius duomenis</div>
+            <hr>
+            <form>
+                <p>Client ID:</p>
+                <input type="number" name="id" required />
+                <p>Specialist:</p>
+                <input type="text" name="specialist" required />
+                <button type="submit" class="submit">Submit</button>
+            </form>
         </main>
 
         <script type="text/javascript" src="js/admin_js.js"></script>
