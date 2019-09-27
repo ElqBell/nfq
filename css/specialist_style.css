@@ -16,13 +16,13 @@ main {
     padding: 0 5px;
     border-radius: 24px;
     text-align: center;
-    border: 2px solid #c02942;
+    border: 2px solid #55CEEA;
     background-color: white;
     transition: background-color 0.3s, color 0.1s;;
 }
 
 .button:hover {
-    background-color: #c02942;
+    background-color: #55CEEA;
     color: white;
 }
 

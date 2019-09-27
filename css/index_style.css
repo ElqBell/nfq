@@ -7,7 +7,7 @@ main {
 }
 
 hr {
-    border-color: #ebaeae;
+    border-color: #55CEEA;
 }
 
 main div {
@@ -23,7 +23,7 @@ main div ul li {
 
 main div ul li:first-child,
 main div ul li:nth-child(2) {
-    color: #910018;
+    color: #3FB8D3;
 }
 
 main div ul li:first-child {

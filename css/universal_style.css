@@ -5,8 +5,11 @@
     color: rgb(36, 36, 36);
 }
 
+:root {
+}
+
 body {
-    background-color: rgba(235, 182, 182, 0.75);
+    background-color: #F4F7F7;
 }
 
 ul {
@@ -16,7 +19,7 @@ ul {
 header {
     padding: 20px 20px;
     width: 100%;
-    background-color: rgba(192, 41, 66, 0.3);
+    background-color: #8DAAAA;
     border-bottom: 2px solid white;
 }
 
@@ -38,13 +41,14 @@ header li {
     margin: 0 30px;
     border-radius: 24px;
     text-align: center;
-    border: 2px solid #c02942;
+    border: 2px solid #68D0E8;
     background-color: white;
-    transition: background-color 0.3s;
+    transition: background-color 0.2s, border-color 0.3s;
 }
 
 header li:hover {
-    background-color: #c02942;
+    background-color: #68D0E8;
+    border-color: white;
 }
 
 header a {
