@@ -9,23 +9,23 @@ function adjustLocalStorage(id) {
     }
 }
 
-// Deletes a client from localStorage
-function deleteClient() {
+// Updates client data
+function servicedClient() {
     let id = document.getElementById("Clients").value;
     let data = [];
     for(i = 0; i < window.localStorage.length; i++) {
         data[i] = JSON.parse(localStorage.getItem(`user${i}`));
         if(data[i]["id"] == id) {
             localStorage.removeItem(`user${i}`);
-            // Sorts local storage keys in order
-            adjustLocalStorage(i);
+            let updatedClientData = {"id": id, "specialist": data[i]["specialist"], "serviced": "true"};
+            localStorage.setItem(`user${i}`, JSON.stringify(updatedClientData));
             break;
         }
     }
 
-    // Finds new specialist list(deletes specialist if they have no more clients)
+    // Finds new specialist list(doens't display specialist if they have no more clients)
     findSpecialists();
-    // Finds new client list (without the deleted one)
+    // Finds new client list (without the serviced one)
     findClients();
 }
 
@@ -39,15 +39,16 @@ function clearSelectTag(selector) {
 // Finds all specialists and displays them
 function findSpecialists() {
     let data = [];
-    for(i = 0; i < window.localStorage.length; i++)
-        data[i] = JSON.parse(localStorage.getItem(`user${i}`));
+    parseData(data);
 
     clearSelectTag("Specialists");
 
     // Sort object array by specialist name
     data.sort((a, b) => a["specialist"] > b["specialist"] ? 1 : -1);
-    
-    let unique = [...new Set(data.map(item => item["specialist"]))];
+
+    // Find unique specialists
+    let filteredData = data.filter(item => item["serviced"] === "false");
+    let unique = [...new Set(filteredData.map(item => item["specialist"]))];
 
     for(i = 0; i < unique.length; i++) {
         let optionTag = document.createElement("OPTION");
@@ -71,14 +72,13 @@ function findClients() {
         }
 
     let data = [];
-    for(i = 0; i < window.localStorage.length; i++)
-        data[i] = JSON.parse(localStorage.getItem(`user${i}`));
+    parseData(data);
 
     // Sort object array by id
     data.sort((a, b) => parseInt(a["id"]) > parseInt(b["id"]) ? 1 : -1);
 
     for(i = 0; i < data.length; i++)
-        if(data[i]["specialist"] === currentSpecialist) {
+        if(data[i]["specialist"] === currentSpecialist && data[i]["serviced"] === "false") {
             let optionTag = document.createElement("OPTION");
             optionTag.setAttribute("value", data[i]["id"]);
             optionTag.innerText = data[i]["id"];
@@ -89,4 +89,4 @@ function findClients() {
 window.onload = findSpecialists();
 window.onload = findClients();
 document.getElementById("Specialists").addEventListener("change", () => findClients());
-document.getElementById("DeleteClientButton").addEventListener("click", () => deleteClient());
+document.getElementById("ServicedClientButton").addEventListener("click", () => servicedClient());
