@@ -59,7 +59,7 @@ function findClients() {
 
     clearSelectTag("Clients");
 
-    // FInd currently selected specialist
+    // Find currently selected specialist
     for(i = 0; i < specialists.length; i++)
         if(specialists[i].selected == true) {
             currentSpecialist = specialists[i].innerText;
