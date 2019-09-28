@@ -1,0 +1,1 @@
+window.onload = document.querySelector("form input").focus();
