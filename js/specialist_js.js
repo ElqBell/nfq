@@ -25,6 +25,14 @@ function clearSelectTag(selector) {
         document.getElementById(selector).removeChild(specialists[i]);
 }
 
+// A function to create an option for a drop-down list
+function createOption(dataToWrite, whereToWrite) {
+    let optionTag = document.createElement("OPTION");
+    optionTag.setAttribute("value", dataToWrite);
+    optionTag.innerText = dataToWrite;
+    document.getElementById(whereToWrite).appendChild(optionTag);
+}
+
 // Finds all specialists and displays them
 function findSpecialists() {
     let data = [];
@@ -40,10 +48,7 @@ function findSpecialists() {
     let unique = [...new Set(filteredData.map(item => item["specialist"]))];
 
     for(i = 0; i < unique.length; i++) {
-        let optionTag = document.createElement("OPTION");
-        optionTag.setAttribute("value", unique[i]);
-        optionTag.innerText = unique[i];
-        document.getElementById("Specialists").appendChild(optionTag);
+        createOption(unique[i], "Specialists");
     }
 }
 
@@ -54,6 +59,7 @@ function findClients() {
 
     clearSelectTag("Clients");
 
+    // FInd currently selected specialist
     for(i = 0; i < specialists.length; i++)
         if(specialists[i].selected == true) {
             currentSpecialist = specialists[i].innerText;
@@ -68,10 +74,7 @@ function findClients() {
 
     for(i = 0; i < data.length; i++)
         if(data[i]["specialist"] === currentSpecialist && data[i]["serviced"] === "false") {
-            let optionTag = document.createElement("OPTION");
-            optionTag.setAttribute("value", data[i]["id"]);
-            optionTag.innerText = data[i]["id"];
-            document.getElementById("Clients").appendChild(optionTag);
+            createOption(data[i]["id"], "Clients");
         }
 }
 
