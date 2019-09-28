@@ -22,12 +22,22 @@ function deleteAllData() {
 // Saves received data to localStorage
 function saveExampleData() {
     let xhttp = new XMLHttpRequest();
-    let storageLength = window.localStorage.length;
     displayDownloadProgress(-1);
     xhttp.addEventListener("error", () => displayDownloadProgress(0));
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             displayDownloadProgress(1);
+
+            // Finds the length of `clientData` object in localstorage
+            let storageLength;
+            let clientData = [];
+            if(window.localStorage.getItem("clientData") === null) {
+                storageLength = 0
+            } else {
+                storageLength = Object.keys(JSON.parse(window.localStorage.getItem("clientData"))).length;
+                clientData.push(JSON.parse(localStorage.getItem("clientData")));
+            }
+
             let data = JSON.parse(this.responseText);
             let today = new Date();
             let time = today.getTime();
@@ -35,8 +45,9 @@ function saveExampleData() {
             for(i = storageLength; i < Object.keys(data).length + storageLength; i++) {
                 data[i - storageLength]["serviced"] = "false";
                 data[i - storageLength]["registerTime"] = time;
-                localStorage.setItem(`user${i}`, JSON.stringify(data[i - storageLength]));
+                clientData.push(data[i - storageLength]);
             }
+            localStorage.setItem("clientData", JSON.stringify(clientData));
         }
       };
     xhttp.open("GET", "https://api.myjson.com/bins/q959t", true);
@@ -56,8 +67,11 @@ function newClient() {
         let today = new Date();
         let time = today.getTime();
 
-        let newClientData = {"id": id, "specialist": specialist, "serviced": "false", "registerTime": time};
-        localStorage.setItem(`user${window.localStorage.length}`, JSON.stringify(newClientData));
+        let newClientData = {"id": `${id}`, "specialist": specialist, "serviced": "false", "registerTime": time};
+        let storedData = JSON.parse(localStorage.getItem("clientData"));
+        storedData.push(newClientData);
+
+        localStorage.setItem("clientData", JSON.stringify(storedData));
 
         document.getElementsByClassName("successfulRegistration")[0].style.opacity = 1;
     }

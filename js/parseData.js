@@ -1,4 +1,5 @@
-function parseData(data) {
-    for(i = 0; i < window.localStorage.length; i++)
-        data[i] = JSON.parse(localStorage.getItem(`user${i}`));
+function parseData(clientData, data) {
+    clientData = JSON.parse(clientData);
+    for(i = 0; i < Object.keys(clientData).length; i++)
+        data[i] = clientData[i];
 }

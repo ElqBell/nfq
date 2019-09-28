@@ -8,19 +8,26 @@ function calculateVisitLength(startTime, endTime) {
 // Updates client data
 function servicedClient() {
     let id = document.getElementById("Clients").value;
+
+    let clientData = localStorage.getItem("clientData");
+    let dataLength = Object.keys(JSON.parse(clientData)).length;
     let data = [];
+    parseData(clientData, data);
+
     let today = new Date();
     let time = today.getTime();
 
-    for(i = 0; i < window.localStorage.length; i++) {
-        data[i] = JSON.parse(localStorage.getItem(`user${i}`));
+    for(i = 0; i < dataLength; i++) {
+        //data[i] = JSON.parse(localStorage.getItem(`user${i}`));
         if(data[i]["id"] == id) {
             // Finds the time it took to service a client
             time = calculateVisitLength(data[i]["registerTime"], time)
 
             let updatedClientData = {"id": id, "specialist": data[i]["specialist"], "serviced": "true",
                                     "registerTime": data[i]["registerTime"], "visitLength" : time};
-            localStorage.setItem(`user${i}`, JSON.stringify(updatedClientData));
+            let storedData = JSON.parse(localStorage.getItem("clientData"));
+            storedData[i] = updatedClientData;
+            localStorage.setItem("clientData", JSON.stringify(storedData));
             break;
         }
     }
@@ -48,8 +55,9 @@ function createOption(dataToWrite, whereToWrite) {
 
 // Finds all specialists and displays them
 function findSpecialists() {
+    let clientData = localStorage.getItem("clientData");
     let data = [];
-    parseData(data);
+    parseData(clientData, data);
 
     clearSelectTag("Specialists");
 
@@ -79,8 +87,9 @@ function findClients() {
             break;
         }
 
+    let clientData = localStorage.getItem("clientData");
     let data = [];
-    parseData(data);
+    parseData(clientData, data);
 
     // Sort object array by id
     data.sort((a, b) => parseInt(a["id"]) > parseInt(b["id"]) ? 1 : -1);
