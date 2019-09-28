@@ -18,6 +18,10 @@ main hr {
     border: 1px solid white;
 }
 
+form p {
+    text-align: center;
+}
+
 form input {
     margin-top: 4px;
 }
@@ -30,13 +34,19 @@ form input {
     border-radius: 5px;
 }
 
-.downloadProgress {
+.downloadProgress,
+.successfulRegistration {
     margin: 22px 0 -22px 0;
     padding: 3px 6px;
     font-size: 20px;
     background-color: white;
     border-radius: 5px;
     opacity: 0;
+}
+
+.successfulRegistration {
+    background-color: #33CC99;
+    color: white;
 }
 
 @media only screen and (max-width: 360px) {

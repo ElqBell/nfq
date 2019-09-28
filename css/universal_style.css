@@ -20,7 +20,7 @@ ul {
 header {
     padding: 20px 20px;
     width: 100%;
-    background-color: rgb(60, 80, 104);
+    background-color: #3C5068;
     border-bottom: 2px solid white;
 }
 
@@ -51,7 +51,7 @@ header li:hover {
     background-color: #229DCF;
 }
 
-header a {
+header li a {
     display: block;
     height: 100%;
     font-size: 24px;
@@ -59,7 +59,7 @@ header a {
     transition: color 0.1s;
 }
 
-header a:hover {
+header li a:hover {
     color: white;
 }
 
@@ -81,7 +81,7 @@ header a:hover {
     color: white;
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 932px) {
     header {
         padding-bottom: 12px;
     }
@@ -92,5 +92,12 @@ header a:hover {
     
     header ul li {
         margin-bottom: 8px;
+    }
+}
+
+@media only screen and (max-width: 280px) {
+    header li {
+        line-height: 48px;
+        margin: 0;
     }
 }

@@ -7,7 +7,7 @@ main {
 }
 
 hr {
-    border-color: #55CEEA;
+    border: 1px solid #3C5068;
 }
 
 main div {
@@ -19,19 +19,46 @@ main div ul li {
     font-size: 36px;
     padding: 3px 0 0 16px;
     margin: 0 24px 4px 0;
+    word-wrap: break-word;
 }
 
-main div ul li:first-child,
-main div ul li:nth-child(2) {
-    color: #3FB8D3;
+main div ul span {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
 }
 
-main div ul li:first-child {
-    margin-left: 4px;
+main div ul span:first-child {
+    background-color: #3C5068;
 }
 
-main div ul li:nth-child(2) {
-    margin-left: 8px;
+main div ul span:first-child li,
+main div ul span:nth-child(2) li {
+    color: white;
+}
+
+main div ul span li:first-child {
+    text-align: right;
+    width: 100px;
+}
+
+main div ul span li:nth-child(2) {
+    text-align: left;
+    width: 250px;
+}
+
+@media only screen and (max-width: 420px) {
+    main div ul li {
+        font-size: 32px;
+    }
+
+    main div ul span li:first-child {
+        width: 80px;
+    }
+    
+    main div ul span li:nth-child(2) {
+        width: 220px;
+    }
 }
 
 @media only screen and (max-width: 370px) {
@@ -40,31 +67,55 @@ main div ul li:nth-child(2) {
         padding: 3px 0 0 8px;
     }
 
-    main div ul li:first-child {
-        margin-left: 2px;
+    main div ul span li:first-child {
+        width: 40px;
+    }
+
+    main div ul span li:first-child {
+        width: 80px;
     }
     
-    main div ul li:nth-child(2) {
-        margin-left: 8px;
+    main div ul span li:nth-child(2) {
+        width: 180px;
     }
 }
 
 @media only screen and (max-width: 320px) {
-    main div ul li {
+    main div ul span li {
         font-size: 28px;
         padding: 3px 0 0 2px;
     }
-}
 
-@media only screen and (max-width: 260px) {
-    main div ul li:first-child,
-    main div ul li:nth-child(2) {
-        font-size: 26px;
+    main div ul span:first-child li:first-child,
+    main div ul span:first-child li:nth-child(2) {
+        font-size: 24px;
+    }
+
+    main div ul span li:first-child {
+        width: 70px;
+    }
+    
+    main div ul span li:nth-child(2) {
+        width: 150px;
     }
 }
 
-@media only screen and (max-width: 240px) {
-    main div ul li:nth-child(2) {
-        font-size: 17px;
+@media only screen and (max-width: 280px) {
+    main div ul span li:first-child,
+    main div ul span li:nth-child(2) {
+        font-size: 24px;
+    }
+
+    main div ul span:first-child li:first-child,
+    main div ul span:first-child li:nth-child(2) {
+        font-size: 18px;
+    }
+
+    main div ul span li:first-child {
+        width: 60px;
+    }
+    
+    main div ul span li:nth-child(2) {
+        width: 100px;
     }
 }

@@ -15,6 +15,7 @@ form select {
     border-radius: 2px;
     border: 1px solid #55CEEA;
     font-size: 18px;
+    width: 220px;
 }
 
 form input:focus,
