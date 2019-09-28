@@ -29,12 +29,17 @@ function saveExampleData() {
         if (this.readyState == 4 && this.status == 200) {
             displayDownloadProgress(1);
             let data = JSON.parse(this.responseText);
+            let today = new Date();
+            let time = today.getTime();
+
             for(i = storageLength; i < Object.keys(data).length + storageLength; i++) {
+                data[i - storageLength]["serviced"] = "false";
+                data[i - storageLength]["registerTime"] = time;
                 localStorage.setItem(`user${i}`, JSON.stringify(data[i - storageLength]));
             }
         }
       };
-    xhttp.open("GET", "https://api.myjson.com/bins/1eb8a9", true);
+    xhttp.open("GET", "https://api.myjson.com/bins/q959t", true);
     xhttp.send();
 }
 
@@ -48,7 +53,10 @@ function newClient() {
         document.forms[0].getElementsByTagName("input")[0].value = "";
         document.forms[0].getElementsByTagName("input")[1].value = "";
 
-        let newClientData = {"id": id, "specialist": specialist, "serviced": "false"};
+        let today = new Date();
+        let time = today.getTime();
+
+        let newClientData = {"id": id, "specialist": specialist, "serviced": "false", "registerTime": time};
         localStorage.setItem(`user${window.localStorage.length}`, JSON.stringify(newClientData));
 
         document.getElementsByClassName("successfulRegistration")[0].style.opacity = 1;

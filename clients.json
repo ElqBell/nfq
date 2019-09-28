@@ -1,52 +1,42 @@
 [
     {
         "id": "495",
-        "specialist": "Emily",
-        "serviced": "false"
+        "specialist": "Emily"
     },
     {
         "id": "140",
-        "specialist": "David",
-        "serviced": "false"
+        "specialist": "David"
     },
     {
         "id": "771",
-        "specialist": "Jake",
-        "serviced": "false"
+        "specialist": "Jake"
     },
     {
         "id": "123",
-        "specialist": "David",
-        "serviced": "false"
+        "specialist": "David"
     },
     {
         "id": "321",
-        "specialist": "Jake",
-        "serviced": "false"
+        "specialist": "Jake"
     },
     {
         "id": "113",
-        "specialist": "David",
-        "serviced": "false"
+        "specialist": "David"
     },
     {
         "id": "155",
-        "specialist": "Michael",
-        "serviced": "false"
+        "specialist": "Michael"
     },
     {
         "id": "877",
-        "specialist": "Michael",
-        "serviced": "false"
+        "specialist": "Michael"
     },
     {
         "id": "202",
-        "specialist": "Jake",
-        "serviced": "false"
+        "specialist": "Jake"
     },
     {
         "id": "505",
-        "specialist": "Michael",
-        "serviced": "false"
+        "specialist": "Michael"
     }
 ]

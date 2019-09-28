@@ -1,12 +1,25 @@
+// Finds the amount of time a visit lasted
+function calculateVisitLength(startTime, endTime) {
+    let totalSeconds = Math.round((endTime - startTime) / 1000);
+    let formatedTime = new Date(totalSeconds * 1000).toISOString().substr(11, 8);
+    return formatedTime;
+}
+
 // Updates client data
 function servicedClient() {
     let id = document.getElementById("Clients").value;
     let data = [];
+    let today = new Date();
+    let time = today.getTime();
+
     for(i = 0; i < window.localStorage.length; i++) {
         data[i] = JSON.parse(localStorage.getItem(`user${i}`));
         if(data[i]["id"] == id) {
-            localStorage.removeItem(`user${i}`);
-            let updatedClientData = {"id": id, "specialist": data[i]["specialist"], "serviced": "true"};
+            // Finds the time it took to service a client
+            time = calculateVisitLength(data[i]["registerTime"], time)
+
+            let updatedClientData = {"id": id, "specialist": data[i]["specialist"], "serviced": "true",
+                                    "registerTime": data[i]["registerTime"], "visitLength" : time};
             localStorage.setItem(`user${i}`, JSON.stringify(updatedClientData));
             break;
         }
