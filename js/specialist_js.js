@@ -1,14 +1,3 @@
-// Adjusts keys of localStorage after a client is deleted
-function adjustLocalStorage(id) {
-    // Only executes if removed item is not the last one
-    if(id != window.localStorage.length) {
-        for(i = id; i < window.localStorage.length; i++) {
-            localStorage.setItem(`user${i}`, localStorage.getItem(`user${i+1}`));
-        }
-        localStorage.removeItem(`user${window.localStorage.length - 1}`);
-    }
-}
-
 // Updates client data
 function servicedClient() {
     let id = document.getElementById("Clients").value;

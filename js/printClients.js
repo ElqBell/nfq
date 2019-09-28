@@ -23,7 +23,9 @@ function printClients() {
         (a["specialist"] === b["specialist"]) ? ((parseInt(a["id"]) > parseInt(b["id"])) ? 1 : -1) : -1 );
 
         // Find unique specialists
-        let unique = [...new Set(data.map(item => item["specialist"]))];
+        let filteredData = data.filter(item => item["serviced"] === "false");
+        let unique = [...new Set(filteredData.map(item => item["specialist"]))];
+        // ID for highlighting only the first specialist
         let uniqueID = 0;
 
         for(i = 0; i < window.localStorage.length; i++) {
