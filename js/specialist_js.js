@@ -1,8 +1,7 @@
 // Finds the amount of time a visit lasted
 function calculateVisitLength(startTime, endTime) {
     let totalSeconds = Math.round((endTime - startTime) / 1000);
-    let formatedTime = new Date(totalSeconds * 1000).toISOString().substr(11, 8);
-    return formatedTime;
+    return totalSeconds;
 }
 
 // Updates client data
@@ -18,7 +17,6 @@ function servicedClient() {
     let time = today.getTime();
 
     for(i = 0; i < dataLength; i++) {
-        //data[i] = JSON.parse(localStorage.getItem(`user${i}`));
         if(data[i]["id"] == id) {
             // Finds the time it took to service a client
             time = calculateVisitLength(data[i]["registerTime"], time)

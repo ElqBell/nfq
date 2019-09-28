@@ -9,3 +9,9 @@ form input {
 form div {
     margin-top: 16px;
 }
+
+.avgTime {
+    margin-top: 24px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #3C5068;
+}
