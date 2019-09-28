@@ -50,14 +50,20 @@ form input {
 }
 
 @media only screen and (max-width: 360px) {
-    .button {
-        margin: 0 16px;
+    #SaveExampleData {
+        line-height: 32px;
+        margin: 4px 12px;
     }
 }
 
 @media only screen and (max-width: 300px) {
-    .button {
-        line-height: 32px;
+    #DeleteAllData {
+        line-height: 48px;
+        margin: 4px 12px;
+    }
+
+    #saveExampleData {
+        line-height: 24px;
     }
 }
 
